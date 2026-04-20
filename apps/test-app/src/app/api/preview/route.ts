@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { fetchMetadata } from '@link-preview/api';
-import { validateUrl } from '@link-preview/api';
+import { fetchMetadata, validateUrl } from '@link-preview/api';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -24,9 +23,12 @@ export async function GET(request: NextRequest) {
 
   // Parse timeout
   const timeoutMs = timeout ? parseInt(timeout, 10) : undefined;
+  if (timeout && Number.isNaN(timeoutMs)) {
+    return NextResponse.json({ success: false, error: { code: 'INVALID_TIMEOUT', message: 'Timeout must be a number' } }, { status: 400 });
+  }
 
   try {
-    const data = await fetchMetadata(url!, { timeout: timeoutMs });
+    const data = await fetchMetadata(url!, timeoutMs !== undefined ? { timeout: timeoutMs } : {});
 
     return NextResponse.json({
       success: true,
