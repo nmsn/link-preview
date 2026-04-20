@@ -2,11 +2,20 @@
 
 import { useState } from 'react';
 import { LinkPreview, LinkPreviewSkeleton, LinkPreviewErrorComponent } from '@link-preview/ui';
-import type { LinkPreviewError } from '@link-preview/ui';
 import { ComponentDemo } from './ComponentDemo';
+
+function isValidUrl(value: string): boolean {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'http:' || url.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
 
 export function PreviewShowcase() {
   const [url, setUrl] = useState('https://example.com');
+  const isValid = isValidUrl(url);
 
   return (
     <div className="flex flex-col gap-6">
@@ -28,7 +37,7 @@ export function PreviewShowcase() {
           title="LinkPreview Component"
           description="Real component with API call"
         >
-          <LinkPreview url={url} />
+          {isValid ? <LinkPreview url={url} /> : <p className="text-sm text-zinc-500">Enter a valid URL</p>}
         </ComponentDemo>
 
         {/* Skeleton Demo */}
@@ -45,7 +54,7 @@ export function PreviewShowcase() {
           description="With simulated error"
         >
           <LinkPreviewErrorComponent
-            error={{ code: 'DEMO_ERROR', message: 'This is a demo error state' } as LinkPreviewError}
+            error={{ code: 'DEMO_ERROR', message: 'This is a demo error state' }}
             className="w-full max-w-sm"
           />
         </ComponentDemo>
