@@ -48,12 +48,9 @@ apps/test-app/
 │   │   └── api/
 │   │       └── preview/
 │   │           └── route.ts        # API route (server-side)
-│   ├── components/
-│   │   ├── PreviewShowcase.tsx     # Interactive showcase
-│   │   └── ComponentDemo.tsx       # Demo wrapper for states
-│   └── lib/
-│       ├── fetchMetadata.ts        # Forked from @link-preview/api
-│       └── validate.ts             # Forked from @link-preview/api
+│   └── components/
+│       ├── PreviewShowcase.tsx     # Interactive showcase
+│       └── ComponentDemo.tsx       # Demo wrapper for states
 ├── package.json
 ├── tsconfig.json
 ├── next.config.ts
@@ -64,13 +61,14 @@ apps/test-app/
 
 ### 1. API Route Integration
 
-Instead of calling the external Express server directly, the test app reuses the core logic from `@link-preview/api`:
+The test app imports core functions from `@link-preview/api` (which re-exports them from `packages/api/src/index.ts`):
 
-- **`fetchMetadata.ts`** — Copied from `packages/api/src/fetchMetadata.ts`
-- **`validate.ts`** — Copied from `packages/api/src/utils/validate.ts`
-- **Cache disabled** — No NodeCache in API route (simpler for testing)
+- **`fetchMetadata`** — Imported from `@link-preview/api`
+- **`validateUrl`** — Imported from `@link-preview/api`
 
-**Why:** Avoids CORS issues, allows testing in isolation, faster development iteration.
+**Why:** Avoids code duplication, ensures test app uses same logic as production API, easier maintenance.
+
+> **Note:** NodeCache is used in the API route for caching, matching production behavior.
 
 ### 2. Component Showcase
 
@@ -100,7 +98,7 @@ The main page (`app/page.tsx`) displays three parallel sections:
 ### Phase 1: Project Scaffold
 - Create `apps/test-app` with Next.js 16
 - Configure TypeScript, Tailwind, pnpm workspace
-- Copy shared API logic
+- Add `@link-preview/api` as dependency (for imports)
 
 ### Phase 2: API Route
 - Implement `GET /api/preview?url=...`

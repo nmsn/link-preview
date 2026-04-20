@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-card-bg: oklch(100% 0 0);
+  --color-card-border: oklch(93% 0 0);
+  --color-card-text: oklch(15% 0 0);
+  --color-card-muted: oklch(50% 0 0);
+  --radius-card: 0.75rem;
+}
