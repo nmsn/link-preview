@@ -1,0 +1,27 @@
+{
+  "name": "@link-preview/core",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "node-cache": "^5.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.39",
+    "typescript": "^5.7.0"
+  }
+}
