@@ -1,10 +1,10 @@
 import express, { type Express } from 'express';
 import cors from 'cors';
-import previewRouter from './routes/preview.js';
+import previewRouter from './routes/preview';
 
 // Re-export core functions for use by other packages
-export { fetchMetadata, type LinkPreviewData, type FetchMetadataOptions } from './fetchMetadata.js';
-export { validateUrl, type ValidateResult } from './utils/validate.js';
+export { fetchMetadata, type LinkPreviewData, type FetchMetadataOptions } from './fetchMetadata';
+export { validateUrl, type ValidateResult } from './utils/validate';
 
 // Create Express app - exported for use without starting server
 export function createApp(): Express {

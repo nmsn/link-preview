@@ -1,7 +1,7 @@
 import { Router, Request, Response } from 'express';
-import { fetchMetadata } from '../fetchMetadata.js';
-import { validateUrl } from '../utils/validate.js';
-import { previewCache } from '../utils/cache.js';
+import { fetchMetadata } from '../fetchMetadata';
+import { validateUrl } from '../utils/validate';
+import { previewCache } from '../utils/cache';
 
 const router: Router = Router();
 

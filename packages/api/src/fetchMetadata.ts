@@ -1,5 +1,5 @@
-import { parseHtml, getFallbackFavicon } from './parseHtml.js';
-import { previewCache } from './utils/cache.js';
+import { parseHtml, getFallbackFavicon } from './parseHtml';
+import { previewCache } from './utils/cache';
 
 export interface LinkPreviewData {
   url: string;
