@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { cn } from '@/lib/utils';
 
 export interface LinkPreviewCardProps {
   title: string;
@@ -25,119 +26,46 @@ export const LinkPreviewCard = memo(function LinkPreviewCard({
 
   return (
     <div
-      className={`link-preview-card ${className}`.trim()}
-      style={{
-        backgroundColor: 'var(--color-card-bg)',
-        borderColor: 'var(--color-card-border)',
-        borderRadius: 'var(--radius-card)',
-        borderWidth: '1px',
-        borderStyle: 'solid',
-        overflow: 'hidden',
-        fontFamily: 'system-ui, -apple-system, sans-serif',
-      }}
+      className={cn(
+        'bg-card text-card-foreground rounded-xl border border-border overflow-hidden font-sans',
+        className
+      )}
     >
       {image && (
-        <div
-          className="link-preview-card-image"
-          style={{
-            width: '100%',
-            height: '200px',
-            overflow: 'hidden',
-            backgroundColor: 'var(--color-card-border)',
-          }}
-        >
+        <div className="w-full h-50 overflow-hidden bg-border">
           <img
             src={image}
             alt=""
             loading="lazy"
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-            }}
+            className="w-full h-full object-cover"
           />
         </div>
       )}
 
-      <div
-        className="link-preview-card-content"
-        style={{
-          padding: '16px',
-        }}
-      >
-        <div
-          className="link-preview-card-header"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            marginBottom: '8px',
-          }}
-        >
+      <div className="p-4">
+        <div className="flex items-center gap-2 mb-2">
           {favicon && (
             <img
               src={favicon}
               alt=""
-              className="link-preview-card-favicon"
-              style={{
-                width: '16px',
-                height: '16px',
-              }}
+              className="w-4 h-4 rounded-sm shrink-0"
             />
           )}
-          <span
-            className="link-preview-card-publisher"
-            style={{
-              fontSize: '12px',
-              color: 'var(--color-card-muted)',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-            }}
-          >
+          <span className="text-xs text-muted-foreground overflow-hidden text-ellipsis whitespace-nowrap">
             {displayPublisher}
           </span>
         </div>
 
         <a
           href={url}
-          className="link-preview-card-link"
-          style={{
-            textDecoration: 'none',
-            color: 'inherit',
-          }}
+          className="no-underline text-inherit"
         >
-          <h3
-            className="link-preview-card-title"
-            style={{
-              fontSize: '16px',
-              fontWeight: '600',
-              color: 'var(--color-card-text)',
-              margin: '0 0 4px 0',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-              lineHeight: '1.4',
-            }}
-          >
+          <h3 className="text-base font-semibold text-card-foreground mb-1 overflow-hidden text-ellipsis whitespace-nowrap leading-tight">
             {displayTitle}
           </h3>
 
           {displayDescription && (
-            <p
-              className="link-preview-card-description"
-              style={{
-                fontSize: '14px',
-                color: 'var(--color-card-muted)',
-                margin: '0',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                display: '-webkit-box',
-                WebkitLineClamp: '2',
-                WebkitBoxOrient: 'vertical',
-                lineHeight: '1.5',
-              }}
-            >
+            <p className="text-sm text-muted-foreground m-0 overflow-hidden text-ellipsis line-clamp-2 leading-relaxed">
               {displayDescription}
             </p>
           )}

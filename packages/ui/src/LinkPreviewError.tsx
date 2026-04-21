@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import type { LinkPreviewError as LinkPreviewErrorInfo } from './types.js';
+import { cn } from '@/lib/utils';
 
 export interface LinkPreviewErrorProps {
   error: LinkPreviewErrorInfo;
@@ -8,7 +9,7 @@ export interface LinkPreviewErrorProps {
 }
 
 // Warning triangle SVG icon
-function WarningIcon() {
+function WarningIcon({ className }: { className?: string }) {
   return (
     <svg
       width="16"
@@ -20,7 +21,7 @@ function WarningIcon() {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      style={{ flexShrink: 0 }}
+      className={cn('shrink-0', className)}
     >
       <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
       <line x1="12" y1="9" x2="12" y2="13" />
@@ -34,69 +35,28 @@ export const LinkPreviewError = memo(function LinkPreviewError({
   fallback,
   className = '',
 }: LinkPreviewErrorProps) {
-  // If a custom fallback is provided, render it instead
   if (fallback) {
     return <>{fallback}</>;
   }
 
   return (
     <div
-      className={`link-preview-error ${className}`.trim()}
+      className={cn(
+        'bg-card text-card-foreground rounded-xl border border-border overflow-hidden font-sans p-4',
+        className
+      )}
       role="alert"
-      style={{
-        backgroundColor: 'var(--color-card-bg)',
-        borderColor: 'var(--color-card-border)',
-        borderRadius: 'var(--radius-card)',
-        borderWidth: '1px',
-        borderStyle: 'solid',
-        overflow: 'hidden',
-        fontFamily: 'system-ui, -apple-system, sans-serif',
-        padding: '16px',
-      }}
     >
-      <div
-        className="link-preview-error-content"
-        style={{
-          display: 'flex',
-          alignItems: 'flex-start',
-          gap: '8px',
-          color: 'var(--color-card-muted)',
-        }}
-      >
+      <div className="flex items-start gap-2 text-muted-foreground">
         <WarningIcon />
 
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '2px',
-            minWidth: 0,
-            flex: '1',
-          }}
-        >
-          <span
-            className="link-preview-error-message"
-            style={{
-              fontSize: '14px',
-              color: 'var(--color-card-muted)',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-            }}
-          >
+        <div className="flex flex-col gap-0.5 min-w-0 flex-1">
+          <span className="text-sm text-muted-foreground overflow-hidden text-ellipsis whitespace-nowrap">
             {error.message}
           </span>
 
           {error.code && (
-            <span
-              className="link-preview-error-code"
-              style={{
-                fontSize: '11px',
-                color: 'var(--color-card-muted)',
-                opacity: 0.7,
-                fontFamily: 'monospace',
-              }}
-            >
+            <span className="text-[11px] text-muted-foreground/70 font-mono">
               {error.code}
             </span>
           )}

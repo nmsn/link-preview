@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import { cn } from '@/lib/utils';
 
 export interface LinkPreviewSkeletonProps {
   className?: string;
@@ -9,113 +10,32 @@ export const LinkPreviewSkeleton = memo(function LinkPreviewSkeleton({
 }: LinkPreviewSkeletonProps) {
   return (
     <div
-      className={`link-preview-skeleton ${className}`.trim()}
+      className={cn(
+        'bg-card text-card-foreground rounded-xl border border-border overflow-hidden font-sans animate-pulse',
+        className
+      )}
       role="status"
       aria-label="Loading link preview"
-      style={{
-        backgroundColor: 'var(--color-card-bg)',
-        borderColor: 'var(--color-card-border)',
-        borderRadius: 'var(--radius-card)',
-        borderWidth: '1px',
-        borderStyle: 'solid',
-        overflow: 'hidden',
-        fontFamily: 'system-ui, -apple-system, sans-serif',
-      }}
     >
       {/* Image placeholder */}
-      <div
-        className="link-preview-skeleton-image"
-        style={{
-          width: '100%',
-          height: '200px',
-          backgroundColor: 'var(--color-card-border)',
-          animation: 'link-preview-pulse 1.5s ease-in-out infinite',
-        }}
-      />
+      <div className="w-full h-50 bg-border" />
 
-      <div
-        className="link-preview-skeleton-content"
-        style={{
-          padding: '16px',
-        }}
-      >
+      <div className="p-4">
         {/* Publisher row */}
-        <div
-          className="link-preview-skeleton-header"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            marginBottom: '8px',
-          }}
-        >
+        <div className="flex items-center gap-2 mb-2">
           {/* Favicon placeholder */}
-          <div
-            style={{
-              width: '16px',
-              height: '16px',
-              borderRadius: '2px',
-              backgroundColor: 'var(--color-card-border)',
-              flexShrink: 0,
-              animation: 'link-preview-pulse 1.5s ease-in-out infinite',
-            }}
-          />
+          <div className="w-4 h-4 rounded-sm bg-border shrink-0" />
           {/* Publisher placeholder */}
-          <div
-            style={{
-              width: '80px',
-              height: '12px',
-              borderRadius: '4px',
-              backgroundColor: 'var(--color-card-border)',
-              animation: 'link-preview-pulse 1.5s ease-in-out infinite',
-            }}
-          />
+          <div className="w-20 h-3 rounded bg-border" />
         </div>
 
         {/* Title placeholder */}
-        <div
-          className="link-preview-skeleton-title"
-          style={{
-            width: '75%',
-            height: '18px',
-            borderRadius: '4px',
-            backgroundColor: 'var(--color-card-border)',
-            marginBottom: '8px',
-            animation: 'link-preview-pulse 1.5s ease-in-out infinite',
-          }}
-        />
+        <div className="w-3/4 h-4 rounded bg-border mb-2" />
 
         {/* Description placeholders */}
-        <div
-          className="link-preview-skeleton-description-1"
-          style={{
-            width: '100%',
-            height: '14px',
-            borderRadius: '4px',
-            backgroundColor: 'var(--color-card-border)',
-            marginBottom: '6px',
-            animation: 'link-preview-pulse 1.5s ease-in-out infinite',
-          }}
-        />
-        <div
-          className="link-preview-skeleton-description-2"
-          style={{
-            width: '60%',
-            height: '14px',
-            borderRadius: '4px',
-            backgroundColor: 'var(--color-card-border)',
-            animation: 'link-preview-pulse 1.5s ease-in-out infinite',
-          }}
-        />
+        <div className="w-full h-3 rounded bg-border mb-1.5" />
+        <div className="w-3/5 h-3 rounded bg-border" />
       </div>
-
-      {/* Keyframe animation injected via a style tag */}
-      <style>{`
-        @keyframes link-preview-pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.4; }
-        }
-      `}</style>
     </div>
   );
 });
