@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 
-// Note: turbopack is enabled via --turbopack CLI flag in dev script, not via experimental config
-const nextConfig: NextConfig = {};
+const nextConfig: NextConfig = {
+  transpilePackages: ['@link-preview/ui'],
+};
 
 export default nextConfig;

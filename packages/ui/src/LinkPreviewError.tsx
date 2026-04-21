@@ -42,21 +42,28 @@ export const LinkPreviewError = memo(function LinkPreviewError({
   return (
     <div
       className={cn(
-        'bg-card text-card-foreground rounded-xl border border-border overflow-hidden font-sans p-4',
+        'rounded-xl border overflow-hidden font-sans p-4',
         className
       )}
       role="alert"
+      style={{
+        backgroundColor: 'var(--card)',
+        borderColor: 'var(--border)',
+      }}
     >
-      <div className="flex items-start gap-2 text-muted-foreground">
+      <div
+        className="flex items-start gap-2"
+        style={{ color: 'var(--muted-foreground)' }}
+      >
         <WarningIcon />
 
         <div className="flex flex-col gap-0.5 min-w-0 flex-1">
-          <span className="text-sm text-muted-foreground overflow-hidden text-ellipsis whitespace-nowrap">
+          <span className="text-sm overflow-hidden text-ellipsis whitespace-nowrap">
             {error.message}
           </span>
 
           {error.code && (
-            <span className="text-[11px] text-muted-foreground/70 font-mono">
+            <span className="text-[11px] font-mono opacity-70">
               {error.code}
             </span>
           )}

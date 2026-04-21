@@ -27,12 +27,19 @@ export const LinkPreviewCard = memo(function LinkPreviewCard({
   return (
     <div
       className={cn(
-        'bg-card text-card-foreground rounded-xl border border-border overflow-hidden font-sans',
+        'rounded-xl border overflow-hidden font-sans',
         className
       )}
+      style={{
+        backgroundColor: 'var(--card)',
+        borderColor: 'var(--border)',
+      }}
     >
       {image && (
-        <div className="w-full h-50 overflow-hidden bg-border">
+        <div
+          className="w-full h-50 overflow-hidden"
+          style={{ backgroundColor: 'var(--border)' }}
+        >
           <img
             src={image}
             alt=""
@@ -51,7 +58,10 @@ export const LinkPreviewCard = memo(function LinkPreviewCard({
               className="w-4 h-4 rounded-sm shrink-0"
             />
           )}
-          <span className="text-xs text-muted-foreground overflow-hidden text-ellipsis whitespace-nowrap">
+          <span
+            className="text-xs overflow-hidden text-ellipsis whitespace-nowrap"
+            style={{ color: 'var(--muted-foreground)' }}
+          >
             {displayPublisher}
           </span>
         </div>
@@ -60,12 +70,18 @@ export const LinkPreviewCard = memo(function LinkPreviewCard({
           href={url}
           className="no-underline text-inherit"
         >
-          <h3 className="text-base font-semibold text-card-foreground mb-1 overflow-hidden text-ellipsis whitespace-nowrap leading-tight">
+          <h3
+            className="text-base font-semibold mb-1 overflow-hidden text-ellipsis whitespace-nowrap leading-tight"
+            style={{ color: 'var(--card-foreground)' }}
+          >
             {displayTitle}
           </h3>
 
           {displayDescription && (
-            <p className="text-sm text-muted-foreground m-0 overflow-hidden text-ellipsis line-clamp-2 leading-relaxed">
+            <p
+              className="text-sm m-0 overflow-hidden text-ellipsis line-clamp-2 leading-relaxed"
+              style={{ color: 'var(--muted-foreground)' }}
+            >
               {displayDescription}
             </p>
           )}
