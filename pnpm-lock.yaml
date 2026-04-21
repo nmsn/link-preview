@@ -35,6 +35,9 @@ importers:
       '@link-preview/api':
         specifier: workspace:*
         version: link:../../packages/api
+      '@link-preview/core':
+        specifier: workspace:*
+        version: link:../../packages/core
       '@link-preview/ui':
         specifier: workspace:*
         version: link:../../packages/ui
