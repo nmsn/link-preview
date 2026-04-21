@@ -34,6 +34,7 @@
     "vite": "^6.0.0"
   },
   "dependencies": {
+    "@link-preview/core": "workspace:*",
     "@base-ui/react": "^1.4.1",
     "@fontsource-variable/geist": "^5.2.8",
     "class-variance-authority": "^0.7.1",
