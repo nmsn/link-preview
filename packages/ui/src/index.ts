@@ -1,11 +1,11 @@
-export { LinkPreviewCard } from './LinkPreviewCard.js';
-export type { LinkPreviewCardProps } from './LinkPreviewCard.js';
+export { LinkPreviewCard } from './LinkPreviewCard';
+export type { LinkPreviewCardProps } from './LinkPreviewCard';
 
-export { LinkPreview } from './LinkPreview.js';
-export type { LinkPreviewProps, LinkPreviewError, LinkPreviewResponse } from './LinkPreview.js';
+export { LinkPreview } from './LinkPreview';
+export type { LinkPreviewProps, LinkPreviewError, LinkPreviewResponse } from './LinkPreview';
 
-export { LinkPreviewSkeleton } from './LinkPreviewSkeleton.js';
-export type { LinkPreviewSkeletonProps } from './LinkPreviewSkeleton.js';
+export { LinkPreviewSkeleton } from './LinkPreviewSkeleton';
+export type { LinkPreviewSkeletonProps } from './LinkPreviewSkeleton';
 
-export { LinkPreviewError as LinkPreviewErrorComponent } from './LinkPreviewError.js';
-export type { LinkPreviewErrorProps } from './LinkPreviewError.js';
+export { LinkPreviewError as LinkPreviewErrorComponent } from './LinkPreviewError';
+export type { LinkPreviewErrorProps } from './LinkPreviewError';

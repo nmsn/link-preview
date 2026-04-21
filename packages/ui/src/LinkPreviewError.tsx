@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import type { LinkPreviewError as LinkPreviewErrorInfo } from './types.js';
+import type { LinkPreviewError as LinkPreviewErrorInfo } from './types';
 import { cn } from '@/lib/utils';
 
 export interface LinkPreviewErrorProps {

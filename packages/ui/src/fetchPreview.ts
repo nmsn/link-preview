@@ -1,4 +1,4 @@
-import type { LinkPreviewResponse } from './types.js';
+import type { LinkPreviewResponse } from './types';
 
 /**
  * Fetches link preview data from the API service.

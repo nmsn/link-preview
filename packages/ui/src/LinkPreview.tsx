@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, memo } from 'react';
-import { LinkPreviewCard } from './LinkPreviewCard.js';
-import { LinkPreviewSkeleton } from './LinkPreviewSkeleton.js';
-import { LinkPreviewError as LinkPreviewErrorComponent } from './LinkPreviewError.js';
+import { LinkPreviewCard } from './LinkPreviewCard';
+import { LinkPreviewSkeleton } from './LinkPreviewSkeleton';
+import { LinkPreviewError as LinkPreviewErrorComponent } from './LinkPreviewError';
 
 export interface LinkPreviewError {
   code: string;
