@@ -1,5 +1,5 @@
 {
-  "name": "@link-preview/ui",
+  "name": "@nmsn/link-preview-ui",
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.js",

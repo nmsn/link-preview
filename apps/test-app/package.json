@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@link-preview/api": "workspace:*",
+    "@nmsn/link-preview-api": "workspace:*",
     "@nmsn/link-preview-core": "workspace:*",
-    "@link-preview/ui": "workspace:*",
+    "@nmsn/link-preview-ui": "workspace:*",
     "next": "^16.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
