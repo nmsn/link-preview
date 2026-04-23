@@ -1,4 +1,4 @@
-import { fetchMetadata } from '@link-preview/core';
+import { fetchMetadata } from '@nmsn/link-preview-core';
 import type { LinkPreviewResponse } from './types';
 
 export async function fetchPreview(url: string): Promise<LinkPreviewResponse> {

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { fetchMetadata, validateUrl } from '@link-preview/core';
+import { fetchMetadata, validateUrl } from '@nmsn/link-preview-core';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);

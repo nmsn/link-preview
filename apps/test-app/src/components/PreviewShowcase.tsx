@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { LinkPreview, LinkPreviewSkeleton, LinkPreviewErrorComponent } from '@link-preview/ui';
+import { LinkPreview, LinkPreviewSkeleton, LinkPreviewErrorComponent } from '@nmsn/link-preview-ui';
 import { ComponentDemo } from './ComponentDemo';
 
 function isValidUrl(value: string): boolean {
