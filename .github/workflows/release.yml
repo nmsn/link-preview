@@ -14,6 +14,8 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     # only run on main branch pushes, not PRs
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
