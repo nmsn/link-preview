@@ -38,15 +38,15 @@ importers:
 
   apps/test-app:
     dependencies:
-      '@link-preview/api':
+      '@nmsn/link-preview-api':
         specifier: workspace:*
         version: link:../../packages/api
-      '@link-preview/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
       '@nmsn/link-preview-core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@nmsn/link-preview-ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       next:
         specifier: ^16.0.0
         version: 16.2.4(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
