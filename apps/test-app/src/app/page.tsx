@@ -8,7 +8,7 @@ export default function Home() {
           Link Preview Test App
         </h1>
         <p className="mb-8 text-zinc-600 dark:text-zinc-400">
-          Testing @link-preview/ui components with @link-preview/api
+          Testing @nmsn/link-preview-ui components with @nmsn/link-preview-api
         </p>
 
         <PreviewShowcase />

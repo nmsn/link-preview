@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Link Preview Test App',
-  description: 'Testing @link-preview/ui components with @link-preview/api',
+  description: 'Testing @nmsn/link-preview-ui components with @nmsn/link-preview-api',
 };
 
 export default function RootLayout({
