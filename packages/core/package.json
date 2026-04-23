@@ -1,5 +1,5 @@
 {
-  "name": "@link-preview/core",
+  "name": "@nmsn/link-preview-core",
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.js",
@@ -10,6 +10,8 @@
       "import": "./dist/index.js"
     }
   },
+  "engines": { "node": ">=18" },
+  "files": ["dist"],
   "scripts": {
     "build": "tsc",
     "clean": "rm -rf dist"
