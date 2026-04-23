@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      pull-requests: write
     # only run on main branch pushes, not PRs
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
@@ -45,7 +46,6 @@ jobs:
         with:
           version: pnpm changeset version
           publish: pnpm changeset publish
-          createPR: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
