@@ -1,5 +1,5 @@
 {
-  "name": "@link-preview/root",
+  "name": "@nmsn/link-preview-root",
   "private": true,
   "version": "0.1.0",
   "scripts": {
